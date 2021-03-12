@@ -1,33 +1,103 @@
-
-alphabet =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',' ',',', '.', '=','-', '@', '?', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','+']
-print(len(alphabet))
-
-def caeser(plan_text,shift_amount,ciper_direction):
+from logo import gavel
+from replit import clear
+print(gavel)
+bid = {}
+def highest_bidder(bid):
+  name = ""
+  price = 0
+  for x,y in bid.items():
+    if y > price:
+      price = y
+      name  = x
+  print(f"The highest bidder is {name}, price is {price}.")
+  print(f"All the bidders are {bid}")
   
-  cipher_letter = ""
-  if ciper_direction == "decode":
-    shift_amount *= -1
-  for char in plan_text:
-    if char not in alphabet:
-      cipher_letter += char
-    else:
-      position = alphabet.index(char)
-      new_position = position + shift_amount
-      new_position = (new_position % len(alphabet))
-      cipher_letter += alphabet[new_position]
 
-  print(f"The {ciper_direction}d text is {cipher_letter}")
+bid_again = True
+while bid_again:
+  name = input("Enter name : ").lower()
+  price  = int(input("Enter the bid $ "))
+  bid[name] = price
+  bid_continue = input("Bid again ? 'yes' or 'no'").lower()
+  if bid_continue == "yes":
+    clear()
+  elif bid_continue == "no":
+    highest_bidder(bid)
+    bid_again = False
 
-while True:
-  continue_game = input("Do you wan to continue the game 'yes' or 'no' ?\n")
-  if continue_game == "yes".lower():
+
+
+
+# highest_bidder_name = ""
+# highest_bidder = 0
+# def blind_auction(current_name,current_bid):
+#   global highest_bidder
+#   global highest_bidder_name 
+#   bidder = {}
+#   bidder[current_name] = current_bid
+
+#   for key,val in bidder.items():
+#     if val > highest_bidder:
+#       highest_bidder = val
+#       highest_bidder_name = key
+
+
+# finish_bidding = True
+# while finish_bidding:
+#   name = input("Enter Name : ").lower()
+#   bid = int(input("Enter the bid : "))
+#   blind_auction(current_name=name,current_bid=bid)
+#   check = input("Anybody else to bid more? 'yes' or 'no' :").lower()
+#   # clear()
+#   if check == "no":
+#     finish_bidding = False
+#     print(f"Highest bidder is {highest_bidder_name }, bidded {highest_bidder} ")
+
+
+
+# travel_log =[ {
+#       "country":"Germany",
+#       "cities_visited" : ["Berlin","stutgard","Freiburg"],
+#       "visited_time" : 3,},
+# {       
+#         "country":"Italy" ,
+#         "cities_visited" : ["Milan","Rome","Parma"],
+#         "visited_time" : 5}
+# ]
+
+# def add_new_country(country,visited_time,cities_visited):
+#   new_country = {}
+#   new_country["country"] = country
+#   new_country["cities_visited"] = cities_visited
+#   new_country["visited_time"] = visited_time
+
+#   travel_log.append(new_country)
+
+# add_new_country(country="Russia",visited_time="4",cities_visited=["Moscow","Sant Petersburg"])
+# print(travel_log)
+
+
+
+
+
+# student_scores = {
+#   "Harry":81,
+#   "Ron":78,
+#   "Hermione":99,
+#   "Draco":74,
+#   "Neville":62,
+# }
+# student_grade = {}
+# for key,val in student_scores.items():
+#   if val > 90:
+#     student_grade[key] = "Outstanding"
+#   elif  val > 80:
+#     student_grade[key] = "Exceeds Expectations"
+#   elif  val > 70:
+#     student_grade[key] = "Acceptable"
+#   else:
+#     student_grade[key] = "Fail"
   
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt: \n")
-    text = input("Type your message: \n").lower()
-    shift = int(input("Type the shift number: \n"))
-    # shift = shift % 44
-    caeser(plan_text=text,shift_amount=shift,ciper_direction=direction)
-       
-  else:
-    print("Good Bye")
-  
+# print(student_grade)
+
+
