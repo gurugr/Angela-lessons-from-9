@@ -9,8 +9,8 @@ def highest_bidder(bid):
     if y > price:
       price = y
       name  = x
-  print(f"The highest bidder is {name}, price is {price}.")
-  print(f"All the bidders are {bid}")
+  return f"The highest bidder is {name}, price is {price}."
+  
   
 
 bid_again = True
@@ -22,7 +22,9 @@ while bid_again:
   if bid_continue == "yes":
     clear()
   elif bid_continue == "no":
-    highest_bidder(bid)
+    bider = highest_bidder(bid)
+    print(bider)
+    print(f"All the bidders are {bid}")
     bid_again = False
 
 
